@@ -1,0 +1,49 @@
+
+	<div class="card col s8">
+		<div class="card-panel primary-color">
+			<p><i class="material-icons">shopping_cart</i>Cart</p>
+		</div>
+		<table>
+
+				<thead>
+						<tr>
+								<th>No.</th>
+								<th>Item No.</th>
+								<th>Item Name</th>
+								<th>Item Price</th>
+								<th></th>
+						</tr>
+				</thead>
+				<tbody>
+				<% item_total_value = 0 %>
+				<% if session[:cartItem].blank?
+						session[:cartItem] = []
+					end
+				%>
+					<% session[:cartItem].each_with_index do|product, i| %>
+							<% item = @products.find_by(id: product) %>
+							<tr>
+							<td><%= i + 1%></td>
+							<td><%= if_content_tag(:p, parse_product_id(item.id)) %></td>
+							<td><%= item.title %></td>
+							<td><%= "¥ #{item.value}" %></td>
+							<td><%= link_to "x", cart_path(params: { delete: i}) %></td>
+							</tr>
+							<% item_total_value += item.value%>
+					<% end %>
+						<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><%= session[:cartItem].count != 0 ? "Total: ¥#{item_total_value}" : "カートに商品が入っていません。" %></td>
+								<td>
+										<% if session[:cartItem].count == 0%>
+											<%= link_to "TOPへ戻る", top_index_path, { :class => "waves-effect waves-light btn-large" }  %>
+										<% else %>
+											<%= link_to "購入する", cart_confirm_path, { :class => "waves-effect waves-light btn-large" }  %>
+										<% end %>
+								</td>
+						</tr>
+				</tbody>
+		</table>
+	</div>

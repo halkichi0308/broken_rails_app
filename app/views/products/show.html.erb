@@ -1,0 +1,90 @@
+
+  <%# 
+    products show:
+      |left|right|
+      |  s4|   s4|
+  %>
+
+  <%### left side contents ###%>
+  <div class="col s4">
+    <div class="card">
+      <div class="card-image">
+
+        <%# products image %>
+        <% begin %>
+          <%= image_tag(@product.img_path)%>
+        <% rescue %>
+          <%= image_tag("no_image.jpg") %>
+        <% end %>
+        
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+
+        <%# reviewers form %>
+        <%= render "review/new", product_id: @product.id%>
+
+      </div>
+    </div>
+  </div>
+
+  <%### right side contents ###%>
+  <div class="col s4">
+      <div class="card">
+        <div class="card-content">
+
+          <%# products title %>
+          <h2><%= @product.title%></h2>
+
+        </div>
+        <div class="card-content">
+
+          <%# products info %>
+          <p>
+          <%= @product.info %>:
+          I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+
+        </div>
+
+        
+        <div class="divider"><%# content lile %></div>
+
+        <div class="card-content right-align">
+
+          <%# products value %>
+          <%= if_content_tag(:p, "#{currency_type("ja")} #{@product.value}") %>
+
+        </div>
+
+        <div class="divider"><%# content lile %></div>
+
+        <div class="card-content right-align">
+          <%= link_to "購入する", "/cart/#{@product.id}", {class: "btn waves-effect waves-light" }%>
+        </div>
+
+        <div class="divider"><%# content lile %></div>
+
+         <%# Review list contents %>
+          <ul class="collapsible z-depth-0" style="border:none;">
+            <li>
+              <div class="collapsible-header">
+
+                <%= link_to("javascript:void(0)") do %>
+                  <%= @review_count > 0 ? "Reviews (#{@review_count})" : content_tag(:span, "レビューはまだありません。", class: "normal") %>
+                <% end %>
+
+
+              </div>
+              <div class="collapsible-body">
+                <%= render "review/list", reviews: @reviews.where(product_id: @product.id) %>
+              </div>
+              <div  class="collapsible-body">
+              </div>
+            </li>
+          </ul>
+      </div>
+  </div>
+
