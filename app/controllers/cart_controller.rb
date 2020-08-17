@@ -15,26 +15,27 @@ class CartController < ApplicationController
     if params[:id]
       session[:cartItem] += [params[:id]]
       flash[:notice] = "商品をカートに追加しました。"
-      redirect_to("/cart") and return
+      redirect_to cart_path and return
     else
-      redirect_to("/cart") and return
+      redirect_to cart_path and return
     end
   end
   
   def submit
     unless user_signed_in?
       flash[:notice] = "ログインしてください。"
-      redirect_to("#{new_user_session_path}?redirect=#{cart_path}")
+      redirect_to "#{new_user_session_path}?redirect=#{cart_path}"
       return 
     end
     @products = Product.all
     purchase_details = []
     total_value = 0
-    session[:cartItem].each_with_index do|product_id, i|
+    session[:cartItem].each_with_index do |product_id, i|
 
       #[vulnerability]: SQLi
       #[Safe pattern]:
       #product = Product.find_by('id: product_id')
+
       product = Product.find_by("id=#{product_id}")
 
       purchase_details[i] = {
@@ -56,7 +57,7 @@ class CartController < ApplicationController
     session[:cartItem] = []
     
     flash[:notice] = "商品を購入しました。"
-    redirect_to(mypage_index_path)
+    redirect_to mypage_index_path
     
   end
   def confirm

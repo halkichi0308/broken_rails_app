@@ -15,16 +15,16 @@
 
     
     <!--<div class="card products">-->
-    <%= content_tag("div", class: ["card", "products", is_dummy ]) do%>
-      <%= link_to("/products/#{product.id}", :class=>"item") do %>
+    <%= content_tag("div", class: ["card", "products", is_dummy ]) do %>
+      <%= link_to(product_path(product.id), :class=>"item") do %>
         <div class="card-image">
 
           <%# product image %>
           <% begin %>
-            <%= image_tag(product.img_path, :class=>"item_img")%>
+            <%= image_tag product.img_path, :class=>"item_img" %>
             <%# raise NoMethodError %>
           <% rescue %>
-            <%= image_tag("no_image.jpg", :class=>"item_img") %>
+            <%= image_tag "no_image.jpg", :class=>"item_img" %>
           <% end %>
 
           <%# product title %>

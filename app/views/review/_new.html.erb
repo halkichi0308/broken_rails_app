@@ -1,4 +1,4 @@
-<%= form_tag("/review/new/#{product_id}", method: "post") do %>
+<%= form_tag(product_reviews_path(product_id), method: "post") do %>
   <%= label_tag(:q, :Reveiw) %>
   <%= text_field_tag(:content) %>
   <%= hidden_field_tag(:product_id, product_id)%>

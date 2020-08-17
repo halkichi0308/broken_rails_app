@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     @reviews = Review.page(params[:page]).per(3).order("created_at DESC")
     @review_count = Review.where(product_id: params[:id]).count
     # Write code above then 'render'.
-    render "show", products: @products
+    render "show", products: @product
   end
 
   # GET /products/new

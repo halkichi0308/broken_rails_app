@@ -1,15 +1,58 @@
 Rails.application.routes.draw do
-  get 'upload/index'
-  post 'upload/new'
-  get 'upload/delete'
-  get "product/list"
-  get "products/:id" => "products#show"
-  post 'review/new/:id' => "review#new"
-  get 'review/new/:id' => "products#show"
-  get 'review/list'
-  post 'review/create'
-  get 'mypage/index'
-  get 'mypage/history'
+
+  root to: "top#index"
+
+
+  # resources でやったほうが rails の作法に則っています
+  # その関係で、 /upload/index ではなく、 /upload にパスが変わってしまってます
+  # 
+  # delete は get なので delete パラメータを追加しています
+  # 参考: https://railsguides.jp/routing.html#%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B
+  # 
+  # 
+  # resources: upload, only: [:index, :create]
+  # 生成されたルーティング
+  # - get 'upload', to: 'upload#index'
+  # - post 'upload', to: 'upload#create'
+  #
+  #   collection do 
+  #     get 'delete', to: 'upload#delete'
+  #   end
+  # 生成されたルーティング
+  # - get 'upload/delete', to: 'upload#delete'
+  resources :upload, only: [:index, :create] do
+    collection do
+      get 'delete', to: 'upload#delete'
+    end
+  end
+
+
+  # ProductsController は rails の標準に則ってメソッド定義されていたので、 resources で定義しています
+  # ReviewModel は ProductModel を親に持つので、ネストして定義しました。
+  #
+  # resources :products do
+  # 生成されたルーティング（省略）
+  #
+  #   resources :reviews, only: [:create] do
+  # 生成されたルーティング
+  # - post 'products/:product_id/reviews', to: 'reviews#create'
+  # - get  'products/:product_id/reviews/list', to: 'reviews#list'
+  #
+  resources :products do
+    resources :reviews, only: [:create] do
+      collection do
+        get 'list', to: 'reviews#list'
+      end
+    end
+  end
+
+  resources :mypage, only: [:index] do
+    collection do
+      get 'history', to: 'mypage#history'
+    end
+  end
+
+
   namespace :admin do
       resources :users
       resources :products do
@@ -24,6 +67,7 @@ Rails.application.routes.draw do
     end
   match "admin/login", to: "admin#login", via: [:get, :post]
   
+
   get 'cart/purchase'
   get "/cart" => "cart#index"
   get "cart/confirm" => "cart#submit"
@@ -38,7 +82,6 @@ Rails.application.routes.draw do
     get "/users/sign_out" => "devise/sessions#destroy"
   end
   get "top/index"
-  root to: "top#index"
   get 'matelpage/index' => 'matelpage#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

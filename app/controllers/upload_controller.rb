@@ -2,7 +2,7 @@ class UploadController < ApplicationController
   def index
   end
 
-  def new
+  def create
     upload_file = fileupload_param[:file]
     upload_path = Rails.root.join('app/assets/images', upload_file.original_filename)
     #comment for public case Rails.root.join('pubic'
@@ -12,7 +12,7 @@ class UploadController < ApplicationController
     end
 
     flash[:notice] = 'upload seccess'
-    redirect_to '/upload/index'
+    redirect_to upload_path
   end
 
   def delete
