@@ -73,7 +73,7 @@
               <div class="collapsible-header">
 
                 <%= link_to("javascript:void(0)") do %>
-                  <%= @reviews.size > 0 ? "Reviews (#{@reviews.size})" : content_tag(:span, "レビューはまだありません。", class: "normal") %>
+                  <%= @product.reviews.size > 0 ? "Reviews (#{@product.reviews.size})" : content_tag(:span, "レビューはまだありません。", class: "normal") %>
                 <% end %>
 
 
