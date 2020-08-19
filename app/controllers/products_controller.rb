@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    # review/list で paginate を使っているため product.reviews に page をつけている
     @reviews = @product.reviews.page(params[:page]).per(3).order(created_at: 'DESC')
   end
 
