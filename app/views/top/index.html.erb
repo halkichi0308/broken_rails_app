@@ -7,9 +7,9 @@
     <div class="col s1"></div>
 
         <%# product list %>
-       <%= render "products/list", products:@products,per_count:@per_count %>
+       <%= render "products/list", products:@products, per_count:@per_count %>
 
     <div class="col s1"></div>
 </div>
 
-<%= paginate(@products) %>
+<%= paginate @products %>

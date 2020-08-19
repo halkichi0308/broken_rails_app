@@ -13,28 +13,28 @@
       <strong class="bold">User: [<%= current_user.email %>]</strong>
       <% if current_user.role == 'admin' %>
           <%= link_to(admin_users_path) do %>
-            <%= content_tag(:i, "assignment", class: ["small", "material-icons"]) %>
+            <%= content_tag :i, "assignment", class: ["small", "material-icons"] %>
             <%= "Dashboard" %>
           <% end %>|
       <% end %>
           <%= link_to(mypage_index_path) do %>
-            <%= content_tag(:i, "assignment_ind", class: ["small", "material-icons"]) %>
+            <%= content_tag :i, "assignment_ind", class: ["small", "material-icons"] %>
             <%= "Mypage" %>
           <% end %>|
 
           <%= link_to(destroy_user_session_path) do %>
-            <%= content_tag(:i, "vpn_key", class: ["small", "material-icons"]) %>
+            <%= content_tag :i, "vpn_key", class: ["small", "material-icons"] %>
             <%= "Logout" %>
           <% end %>        
         
     <% else %>
           <%= link_to(new_user_registration_path) do %>
-            <%= content_tag(:i, "person_add", class: ["small", "material-icons"]) %>
+            <%= content_tag :i, "person_add", class: ["small", "material-icons"] %>
             <%= "SignUp" %>
           <% end %>|       
 
           <%= link_to(new_user_session_path) do %>
-            <%= content_tag(:i, "mood", class: ["small", "material-icons"]) %>
+            <%= content_tag :i, "mood", class: ["small", "material-icons"] %>
             <%= "Login" %>
           <% end %>        
           

@@ -4,14 +4,17 @@ class ReviewsController < ApplicationController
   #Comment out protect _ from _ forgery
   protect_from_forgery except: [:create, :delete]
 
+  def index
+    redirect_to product_path(params[:product_id])
+  end
+
   def create
     unless user_signed_in?
-      flash[:notice] = "ログインしてください。"
-      redirect_to new_user_session_path, redirect: request.url and return
+      redirect_to new_user_session_path(redirect: request.url), notice: 'ログインしてください。' and return
     end
     
     if params[:content].blank?
-      flash[:notice] = "レビューを入力してください"
+      flash[:notice] = 'レビューを入力してください'
     else
       review = Review.new(
                   product_id: params[:product_id],
@@ -19,7 +22,7 @@ class ReviewsController < ApplicationController
                   content: params[:content]
                 )
       review.save
-      flash[:notice] = "レビューを送信しました。"
+      flash[:notice] = 'レビューを送信しました。'
     end
 
     redirect_to product_path(params[:product_id])
@@ -30,8 +33,7 @@ class ReviewsController < ApplicationController
       review = Review.find params[:delete]
       if current_user.email == review.user_name
         review.destroy
-        flash[:notice] = "レビューを取り消しました。"
-        redirect_to product_path(params[:product_id]) and return
+        redirect_to product_path(params[:product_id]), notice: 'レビューを取り消しました。' and return
       end
     end
     redirect_to product_path(params[:product_id]) and return

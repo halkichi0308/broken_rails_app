@@ -1,5 +1,5 @@
 <%= form_tag '/upload', method: 'post', multipart: true do %>
-  <%= content_tag('label', "file")%>
+  <%= content_tag 'label', "file" %>
   <%= file_field :fileupload, :file %>
 
   <%= submit_tag 'Send file'%>

@@ -1,10 +1,10 @@
 class CartController < ApplicationController
   
   def index
-    @products = Product.all
     if params[:delete] && params[:delete].length < 5
       session[:cartItem].delete_at(params[:delete].to_i)
     end
+    @products = in_cart_products
   end
   def cart
     if session[:cartItem].blank?
@@ -14,8 +14,8 @@ class CartController < ApplicationController
     #if params[:id] =~ /^[0-9]{0,}$/
     if params[:id]
       session[:cartItem] += [params[:id]]
-      flash[:notice] = "商品をカートに追加しました。"
-      redirect_to cart_path and return
+      #flash[:notice] = "商品をカートに追加しました。"
+      redirect_to cart_path, notice: '商品をカートに追加しました。' and return
     else
       redirect_to cart_path and return
     end
@@ -23,8 +23,7 @@ class CartController < ApplicationController
   
   def submit
     unless user_signed_in?
-      flash[:notice] = "ログインしてください。"
-      redirect_to "#{new_user_session_path}?redirect=#{cart_path}"
+      redirect_to new_user_session_path(redirect: cart_path), notice: 'ログインしてください'
       return 
     end
     @products = Product.all
@@ -35,7 +34,6 @@ class CartController < ApplicationController
       #[vulnerability]: SQLi
       #[Safe pattern]:
       #product = Product.find_by('id: product_id')
-
       product = Product.find_by("id=#{product_id}")
 
       purchase_details[i] = {
@@ -56,11 +54,21 @@ class CartController < ApplicationController
     #session clear
     session[:cartItem] = []
     
-    flash[:notice] = "商品を購入しました。"
-    redirect_to mypage_index_path
+    redirect_to mypage_index_path, notice: '商品を購入しました。'
     
   end
   def confirm
-    @products = Product.all
+    @products = in_cart_products
   end
+
+  private
+  def in_cart_products
+    products = []
+    session[:cartItem].each_with_index do |product_id, i|
+      product = Product.find product_id
+      products.push product
+    end
+    products
+  end
+
 end

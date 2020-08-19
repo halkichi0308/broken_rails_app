@@ -1,8 +1,8 @@
 <%= form_tag '/upload/new', method: 'post', multipart: true do %>
-  <%= content_tag('label', "file")%>
+  <%= content_tag 'label', "file" %>
   <%= file_field :fileupload, :file %>
 
   <%= submit_tag 'Send file'%>
 <% end %>
 <% %>
-<%= image_tag('usr_icon.png', :width=>"50%", :class=>"item_img")%>
+<%= image_tag 'usr_icon.png', :width=>"50%", :class=>"item_img" %>

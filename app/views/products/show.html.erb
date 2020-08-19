@@ -12,9 +12,9 @@
 
         <%# products image %>
         <% begin %>
-          <%= image_tag(@product.img_path)%>
+          <%= image_tag @product.img_path %>
         <% rescue %>
-          <%= image_tag("no_image.jpg") %>
+          <%= image_tag "no_image.jpg" %>
         <% end %>
         
       </div>
@@ -24,7 +24,7 @@
       <div class="card-content">
 
         <%# reviewers form %>
-        <%= render "review/new", product_id: @product.id%>
+        <%= render "review/new", product_id: @product.id %>
 
       </div>
     </div>
@@ -55,7 +55,7 @@
         <div class="card-content right-align">
 
           <%# products value %>
-          <%= if_content_tag(:p, "#{currency_type("ja")} #{@product.value}") %>
+          <%= if_content_tag :p, "#{currency_type("ja")} #{@product.value}" %>
 
         </div>
 
@@ -73,13 +73,13 @@
               <div class="collapsible-header">
 
                 <%= link_to("javascript:void(0)") do %>
-                  <%= @review_count > 0 ? "Reviews (#{@review_count})" : content_tag(:span, "レビューはまだありません。", class: "normal") %>
+                  <%= @reviews.size > 0 ? "Reviews (#{@reviews.size})" : content_tag(:span, "レビューはまだありません。", class: "normal") %>
                 <% end %>
 
 
               </div>
               <div class="collapsible-body">
-                <%= render "review/list", reviews: @reviews.where(product_id: @product.id) %>
+                <%= render "review/list", reviews: @reviews %>
               </div>
               <div  class="collapsible-body">
               </div>

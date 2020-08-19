@@ -11,8 +11,7 @@ class UploadController < ApplicationController
       file.write upload_file.read
     end
 
-    flash[:notice] = 'upload seccess'
-    redirect_to upload_path
+    redirect_to upload_path, notice: 'upload success'
   end
 
   def delete

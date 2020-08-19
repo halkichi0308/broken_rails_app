@@ -28,7 +28,7 @@ class Admin::ProductsController < Admin::ApplicationController
   # Only Admin User
   def upload
     xml = params[:file]
-    doc = Nokogiri::XML(xml)do|config|
+    doc = Nokogiri::XML(xml) do |config|
       config.noent
     end
 
@@ -37,7 +37,7 @@ class Admin::ProductsController < Admin::ApplicationController
     def get_contents(xml_NodeSet)
       contents = {}
       begin
-        xml_NodeSet.element_children.each do|node|
+        xml_NodeSet.element_children.each do |node|
           contents[node['id'].to_sym] = node.content
         end
         return contents
@@ -46,25 +46,23 @@ class Admin::ProductsController < Admin::ApplicationController
       end
     end
 
-    ary = doc.xpath('/product/item')
+    ary = doc.xpath '/product/item'
 
-    ary.each do|xml_Node|
-      products.push(get_contents(xml_Node))
+    ary.each do |xml_Node|
+      products.push get_contents(xml_Node)
     end
     #binding.pry
     begin
       products.each do|product_content|
-        product = Product.new()        
-        product_content.each do|key, value|
+        product = Product.new
+        product_content.each do |key, value|
           product[key.to_sym] = value
         end
-        binding.pry
-        product.save()
+        product.save
       end
     rescue => err
       return err
     end
-    flash[:notice] = "[msg] Product uploads success."
-    return redirect_to(new_admin_product_url)
+    return redirect_to new_admin_product_url, notice: '[msg] Product uploads success.'
   end
 end

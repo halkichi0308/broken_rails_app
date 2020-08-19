@@ -1,26 +1,24 @@
-
 <div class="col s8 card">  
-    <table class="striped">
+  <table class="striped">
     <thead>
-        <tr>
-            <th>No.</th>
-            <th>Date</th>
-            <th>Items</th>
-            <th>Order Price</th>
-        </tr>
+      <tr>
+        <th>No.</th>
+        <th>Date</th>
+        <th>Items</th>
+        <th>Order Price</th>
+      </tr>
     </thead>
-
     <tbody>
-    <% @histories.each_with_index do|history, i|%>
+      <% @histories.each_with_index do|history, i|%>
         <tr>
         <td><%= i + 1 %></td>
         <td><%= history.created_at.strftime('%Y/%m/%d')%></td>
         <td><%= "#{JSON.parse(history.details).count} items" %></td>
         <td><%= "¥ #{history.total_value}" %></td>
         </tr>
-    <% end %>
+      <% end %>
     </tbody>
-    </table>
-    <%= paginate(@histories) %>
+  </table>
+  <%= paginate @histories %>
 </div>
 

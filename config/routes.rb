@@ -33,13 +33,14 @@ Rails.application.routes.draw do
   # resources :products do
   # 生成されたルーティング（省略）
   #
-  #   resources :reviews, only: [:create] do
+  #   resources :reviews, only: [:index, :create] do
   # 生成されたルーティング
+  # - get 'products/:product_id/reviews', to: 'reviews#index'
   # - post 'products/:product_id/reviews', to: 'reviews#create'
   # - get  'products/:product_id/reviews/list', to: 'reviews#list'
   #
   resources :products do
-    resources :reviews, only: [:create] do
+    resources :reviews, only: [:index, :create] do
       collection do
         get 'list', to: 'reviews#list'
       end

@@ -1,39 +1,37 @@
 <div class="card col s8">
-		<div class="card-panel teal lighten-4">
-			確認画面
-		</div>
-<table>
+  <div class="card-panel teal lighten-4">
+    確認画面
+  </div>
+  <table>
     <thead>
-        <tr>
-            <th>No.</th>
-            <th>Item Name</th>
-            <th>Item Price</th>
-						<th></th>
-        </tr>
+      <tr>
+        <th>No.</th>
+        <th>Item Name</th>
+        <th>Item Price</th>
+        <th></th>
+      </tr>
     </thead>
     <tbody>
-    <% item_total_value = 0 %>
-    <% session[:cartItem].each_with_index do|product, i| %>
-        
-        <% item = @products.find_by(id: product) %>
+      <% item_total_value = 0 %>
+      <% @products.each_with_index do|product, i| %>
         <tr>
-        <td><%= if_content_tag(:p, parse_product_id(item.id)) %></td>
-        <td><%= item.title %></td>
-        <td><%= item.value %></td>
-				<td></td>
+          <td><%= if_content_tag(:p, parse_product_id(product.id)) %></td>
+          <td><%= product.title %></td>
+          <td><%= product.value %></td>
+          <td></td>
         </tr>
-        <% item_total_value += item.value%>
-    <% end %>
-        <tr>
-            <td></td>
-            <td></td>
-            <td><%= "Total: ¥#{item_total_value}" %></td>
-						<td>
-							<%= button_to '購入', cart_confirm_path,{ class: "waves-effect waves-light btn-large"}%>
-						<td>
-        </tr>
+        <% item_total_value += product.value%>
+      <% end %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><%= "Total: ¥#{item_total_value}" %></td>
+        <td>
+          <%= button_to '購入', cart_confirm_path,{ class: "waves-effect waves-light btn-large"}%>
+        <td>
+      </tr>
     </tbody>
-</table>
-<div class="right-align">
-</div>
+  </table>
+  <div class="right-align">
+  </div>
 </div>

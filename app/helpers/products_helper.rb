@@ -2,12 +2,12 @@ module ProductsHelper
   def currency_type(lang)
     case lang
     
-    when "ja" then
-      return "¥"
-    when "en" then
-      return "$"
+    when 'ja' then
+      return '¥'
+    when 'en' then
+      return '$'
     else
-      return "$"
+      return '$'
     end
   end
 end

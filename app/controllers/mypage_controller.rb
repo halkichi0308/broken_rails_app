@@ -13,8 +13,7 @@ class MypageController < ApplicationController
   private
   def require_login
     unless user_signed_in?
-      redirect_to　"/users/sign_in?redirect=#{request.url}"
-      flash[:alert] = "ログインしてください。"
+      redirect_to new_user_session_path(redirect: request.url), alert: 'ログインしてください。'
     end 
   end
 end

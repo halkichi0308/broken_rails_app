@@ -13,12 +13,10 @@ module Admin
       # When Access to /admin.
       if user_signed_in?
         if current_user.role != 'admin'
-          redirect_to("/users/sign_in")
-          flash[:alert] = "権限がありません。"
+          redirect_to new_user_session_path, alert: '権限がありません'
         end
       else
-        redirect_to("/users/sign_in?redirect=#{request.url}")
-        flash[:alert] = "ログインしてください。"
+        redirect_to new_user_session_path(redirect: request.url), alert: 'ログイン'
       end 
     end
 

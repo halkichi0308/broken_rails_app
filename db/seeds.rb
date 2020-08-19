@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 unless Product.exists?
   5.times do|i|
     product = Product.new(
@@ -13,7 +14,7 @@ unless Product.exists?
         value: 1000,
         img_path: "dummy#{i}.jpg"
     )
-    product.save
+    product.save!
   end
 end
 
@@ -21,15 +22,15 @@ end
 unless User.exists?
   user = User.new(
       email: "admin@example.com",
-      password: "admin",
+      password: "adminadmin",
       role: "admin"
   )
-  user.save
+  user.save!
 
   #Create user,
   user = User.new(
       email: "user@example.com",
-      password: "user",
+      password: "useruser",
   )
-  user.save
+  user.save!
 end
