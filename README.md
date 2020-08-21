@@ -60,7 +60,7 @@ source-sink
 
 ```
 $ docker-compose -f docker-compose-test.yml up -d
-$ docker exec -it rails-test
+$ docker exec -it rails-test /bin/bash
 ```
 
 ### 4.2 Migration
@@ -82,6 +82,3 @@ $ bundle exec rails test
 ```
 $ bundle exec rails test:system
 ```
-
-
-
