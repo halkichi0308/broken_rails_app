@@ -17,7 +17,7 @@
       <% @products.each_with_index do |product, i| %>
         <tr>
           <td><%= i + 1 %></td>
-          <td><%= if_content_tag :p, page_product_id(product.id) %></td>
+          <td><%= if_content_tag :p, parse_product_id(product.id) %></td>
           <td><%= product.title %></td>
           <td><%= "¥ #{product.value}" %></td>
           <td><%= link_to 'x', cart_path(params: {delete: i}) %></td>
@@ -31,7 +31,7 @@
         <td><%= @products.count != 0 ? "Total: ¥#{item_total_value}" : 'カートに商品が入っていません。' %></td>
         <td>
             <% if @products.count == 0%>
-              <%= link_to 'TOPへ戻る', top_index_path, { :class => "waves-effect waves-light btn-large" }  %>
+              <%= link_to 'TOPへ戻る', top_path, { :class => "waves-effect waves-light btn-large" }  %>
             <% else %>
               <%= link_to '購入する', cart_confirm_path, { :class => "waves-effect waves-light btn-large" }  %>
             <% end %>

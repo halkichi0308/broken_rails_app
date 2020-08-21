@@ -13,6 +13,10 @@ module Admin
       # When Access to /admin.
       if user_signed_in?
         if current_user.role != 'admin'
+          # ログイン画面に飛ばされるが、ログインはしているのでtopに飛ばされてしまう
+          # その時のメッセージは You are already signed in. となり、
+          # なぜtopに飛ばされたのかわからなくなるため、
+          # 最初からtopに飛ばして 権限がありません のほうが良いかと思います
           redirect_to new_user_session_path, alert: '権限がありません'
         end
       else

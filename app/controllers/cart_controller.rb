@@ -1,4 +1,5 @@
 class CartController < ApplicationController
+  before_action :cart_empty_check
   
   def index
     if params[:delete] && params[:delete].length < 5
@@ -6,10 +7,8 @@ class CartController < ApplicationController
     end
     @products = in_cart_products
   end
+
   def cart
-    if session[:cartItem].blank?
-      session[:cartItem] = []
-    end
     # ここで数値チェックを外せばSQLインジェクション
     #if params[:id] =~ /^[0-9]{0,}$/
     if params[:id]
@@ -57,11 +56,14 @@ class CartController < ApplicationController
     redirect_to mypage_index_path, notice: '商品を購入しました。'
     
   end
-  def confirm
-    @products = in_cart_products
-  end
 
   private
+  def cart_empty_check
+    if session[:cartItem].blank?
+      session[:cartItem] = []
+    end
+  end
+
   def in_cart_products
     products = []
     session[:cartItem].each_with_index do |product_id, i|

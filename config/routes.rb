@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root to: "top#index"
+  root to: 'top#index'
+  get '/top', to: 'top#index'
 
 
   # resources でやったほうが rails の作法に則っています
@@ -64,26 +65,21 @@ Rails.application.routes.draw do
       resources :histories
       resources :reviews
       
-      root to: "users#index"
+      root to: 'users#index'
     end
-  match "admin/login", to: "admin#login", via: [:get, :post]
+  match 'admin/login', to: 'admin#login', via: [:get, :post]
   
 
-  get 'cart/purchase'
-  get "/cart" => "cart#index"
-  get "cart/confirm" => "cart#submit"
-  get "cart/:id/" => "cart#cart"
+  get '/cart', to: 'cart#index'
+  get '/cart/confirm', to: 'cart#submit'
+  get '/cart/:id', to: 'cart#cart'
 
-  get "admin/users"
-  get "item/list"
   devise_for :users, controllers: {
     sessions:      'user/sessions',
   }
   devise_scope :user do
-    get "/users/sign_out" => "devise/sessions#destroy"
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  get "top/index"
-  get 'matelpage/index' => 'matelpage#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -3,9 +3,6 @@ class MypageController < ApplicationController
   def index
   end
 
-  def cart
-  end
-
   def history
     #binding.pry
     @histories = History.where(user_name: current_user.email).page(params[:page]).order("created_at DESC").per(10)

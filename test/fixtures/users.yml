@@ -8,3 +8,7 @@ testuser:
   email: test@example.com
   encrypted_password: $2a$11$HjMwUKFnJESqctUv.BvQ5OeFVa.bO4MtE6iiKtWBA1lzwnMtnMC8a
   role: user
+testadmin:
+  email: admin@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'adminadmin') %>
+  role: admin
