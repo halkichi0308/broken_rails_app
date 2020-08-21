@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   root to: 'top#index'
   get '/top', to: 'top#index'
+<<<<<<< HEAD
+=======
+
+>>>>>>> 76c020b... テストモジュールの修正とそれに伴う修正
 
   # resources でやったほうが rails の作法に則っています
   # その関係で、 /upload/index ではなく、 /upload にパスが変わってしまってます
@@ -76,8 +80,11 @@ Rails.application.routes.draw do
   get '/cart/confirm', to: 'cart#submit'
   get '/cart/:id', to: 'cart#cart'
 
+<<<<<<< HEAD
   post 'api/v1/login', to: 'user/sessions#login'
   get 'api/v1/login', to: 'user/sessions#getlogin'
+=======
+>>>>>>> 76c020b... テストモジュールの修正とそれに伴う修正
   devise_for :users, controllers: {
     sessions:      'user/sessions',
     passwords:      'user/passwords',
