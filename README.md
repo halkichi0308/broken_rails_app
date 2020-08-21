@@ -74,8 +74,6 @@ products => IMAGE DOWNLOAD
 source-sink  
 app/controllers/products_controller.rb
 ```
----
-
 
 ## 4. Test
 
@@ -83,7 +81,7 @@ app/controllers/products_controller.rb
 
 ```
 $ docker-compose -f docker-compose-test.yml up -d
-$ docker exec -it rails-test /bin/bash
+$ docker exec -it rails-test
 ```
 
 ### 4.2 Migration
@@ -105,3 +103,6 @@ $ bundle exec rails test
 ```
 $ bundle exec rails test:system
 ```
+
+
+
