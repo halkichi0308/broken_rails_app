@@ -51,4 +51,37 @@ source-sink
 Login => Login
 
 source-sink  
-/app/controllers/User/sessions_controller.rb```
+/app/controllers/User/sessions_controller.rb
+```
+
+## 4. Test
+
+### 4.1 Setup
+
+```
+$ docker-compose -f docker-compose-test.yml up -d
+$ docker exec -it rails-test
+```
+
+### 4.2 Migration
+
+```
+$ RAILS_ENV=test bundle exec rake db:create
+$ RAILS_ENV=test bundle exec rake db:migrate
+```
+
+### 4.3 Test
+
+```
+$ bundle exec rails test
+```
+
+
+### 4.4 SystemTest
+
+```
+$ bundle exec rails test:system
+```
+
+
+
