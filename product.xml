@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<product>
+  <title>test_product</title>
+  <info>test_info</info>
+  <value>9999</value>
+  <img_path>dummy0.jpg</img_path>
+</product>

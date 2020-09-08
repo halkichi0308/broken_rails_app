@@ -1,0 +1,30 @@
+version: '3'
+services:
+    rails-test:
+        container_name: "rails-test"
+        build:
+            context: .
+            dockerfile: 'Dockerfile-test'
+            args:
+                APP_ROOT: $APP_ROOT
+        tty: true
+        stdin_open: true
+        volumes:
+            -   '.:${APP_ROOT}'
+        links:
+            -   'mysql-server'
+        depends_on:
+            -   mysql-server
+            -   chrome
+    #DB
+    mysql-server:
+        container_name: "mysql-server"
+        image:  'mysql:5.7'
+        volumes:
+            -   './sql:/docker-entrypoint-initdb.d'
+        environment:
+            MYSQL_ROOT_PASSWORD: pass
+    chrome:
+        image: selenium/standalone-chrome:latest
+        ports:
+            -   4444:4444

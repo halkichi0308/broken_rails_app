@@ -1,0 +1,19 @@
+current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/byebug-10.0.2/ext/byebug
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20190104-2612-12h05bp.rb extconf.rb
+creating Makefile
+
+current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20190104-2612-1x3hqal/byebug

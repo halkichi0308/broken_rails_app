@@ -1,0 +1,15 @@
+
+
+<div class="top_img" style="background-image: url('<%= asset_path 'top.jpg' %>')">
+</div>
+
+<div class="row">
+    <div class="col s1"></div>
+
+        <%# product list %>
+       <%= render "products/list", products:@products, per_count:@per_count %>
+
+    <div class="col s1"></div>
+</div>
+
+<%= paginate @products %>

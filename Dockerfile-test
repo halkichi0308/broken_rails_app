@@ -1,0 +1,33 @@
+FROM ruby:2.6.5-stretch
+
+ARG APP_ROOT
+ENV TERM "xterm-256color"
+
+WORKDIR $APP_ROOT
+
+RUN apt-get update && \
+    apt-get install -y nodejs \
+                       mariadb-client \
+                       fonts-liberation libappindicator3-1 libasound2 libatk-bridge2.0-0 libatspi2.0-0 libgtk-3-0 libnspr4 libnss3 libx11-xcb1 libxss1 libxtst6 xdg-utils \
+                       --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg -i google-chrome-stable_current_amd64.deb
+RUN curl -O https://chromedriver.storage.googleapis.com/2.31/chromedriver_linux64.zip
+RUN unzip chromedriver_linux64.zip
+
+
+COPY Gemfile $APP_ROOT
+COPY Gemfile.lock $APP_ROOT
+
+RUN \
+  echo 'gem: --no-document' >> ~/.gemrc && \
+  cp ~/.gemrc /etc/gemrc && \
+  chmod uog+r /etc/gemrc && \
+  bundle config --global build.nokogiri --use-system-libraries && \
+  bundle config --global jobs 4 && \
+  bundle install && \
+  rm -rf ~/.gem
+
+COPY . $APP_ROOT
