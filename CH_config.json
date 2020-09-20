@@ -616,6 +616,21 @@
                     "enabled":false,
                     "host":"www.google.com",
                     "protocol":"any"
+                },
+                {
+                    "enabled":true,
+                    "host":"fonts.googleapis.com",
+                    "protocol":"any"
+                },
+                {
+                    "enabled":true,
+                    "host":"code.jquery.com",
+                    "protocol":"any"
+                },
+                {
+                    "enabled":true,
+                    "host":"fonts.gstatic.com",
+                    "protocol":"any"
                 }
             ]
         }

@@ -41,6 +41,9 @@ Rails.application.routes.draw do
   # - get  'products/:product_id/reviews/list', to: 'reviews#list'
   #
   resources :products do
+    collection do
+      get 'download/:id', to: 'products#download'
+    end
     resources :reviews, only: [:index, :create] do
       collection do
         get 'list', to: 'reviews#list'

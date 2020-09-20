@@ -62,6 +62,27 @@ class ProductsController < ApplicationController
     end
   end
 
+  # DOWNLOAD /products/download
+  def download
+    # [vulnerability]: Directory traversal
+    # [Safe pattern]:
+    # filePath = Rails.root.join('app', 'assets', 'images', params[:filename].gsub(/[\/\.;:+\|]/,""))
+    filePath = Rails.root.join('app', 'assets', 'images', params[:filename])
+    # "app/assets/images/#{params[:filename]}"
+
+
+    # [vulnerability]: OS Command Injection
+    # [Safe pattern]:
+    # send_file filePath,
+    #  filename: params[:filename],
+    #  type: 'image/jpeg'  
+
+    file = `cat #{filePath}`
+    send_data file,
+      filename: params[:filename],
+      type: 'image/jpeg'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
