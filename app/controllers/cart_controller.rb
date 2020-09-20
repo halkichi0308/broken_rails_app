@@ -9,11 +9,8 @@ class CartController < ApplicationController
   end
 
   def cart
-    # ここで数値チェックを外せばSQLインジェクション
-    #if params[:id] =~ /^[0-9]{0,}$/
     if params[:id]
       session[:cartItem] += [params[:id]]
-      #flash[:notice] = "You have added products to your cart."
       redirect_to cart_path, notice: 'You have added products to your cart.' and return
     else
       redirect_to cart_path and return
@@ -30,9 +27,9 @@ class CartController < ApplicationController
     total_value = 0
     session[:cartItem].each_with_index do |product_id, i|
 
-      #[vulnerability]: SQLi
-      #[Safe pattern]:
-      #product = Product.find_by('id: product_id')
+      # [vulnerability]: SQLi
+      # [Safe pattern]:
+      # product = Product.find_by('id: product_id')
       product = Product.find_by("id=#{product_id}")
 
       purchase_details[i] = {

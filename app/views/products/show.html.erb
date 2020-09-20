@@ -65,6 +65,7 @@
           <%= link_to "Purchase", "/cart/#{@product.id}", {class: "btn waves-effect waves-light" }%>
         </div>
 
+
         <div class="divider"><%# content lile %></div>
 
          <%# Review list contents %>
@@ -85,6 +86,13 @@
               </div>
             </li>
           </ul>
+
+          <div class="card-content right-align">
+            <%= form_tag("/products/download/#{@product.id}", method: "get") do %>
+              <%= hidden_field_tag :filename, @product.img_path %>
+              <%= button_tag "Image Download", class: 'btn btn-info' %>
+            <% end %>
+          </div>
       </div>
   </div>
 
