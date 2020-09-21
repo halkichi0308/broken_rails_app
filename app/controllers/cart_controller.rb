@@ -29,7 +29,7 @@ class CartController < ApplicationController
 
       # [vulnerability]: SQLi
       # [Safe pattern]:
-      # product = Product.find_by('id: product_id')
+      # product = Product.find_by(id: product_id)
       product = Product.find_by("id=#{product_id}")
 
       purchase_details[i] = {

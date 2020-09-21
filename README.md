@@ -45,7 +45,7 @@ app/controllers/cart_controller.rb
 ---
 ### 3.4 XXE injection  
 ```
-New Products(admin) => Send
+New Products(admin) => Create Product
 
 source-sink  
 app/controllers/admin/products_controller.rb
@@ -57,6 +57,22 @@ Reveiw => SUBMIT
 
 source-sink  
 app/controllers/review_controller.rb
+```
+
+### 3.6 Directory traversal 
+ ```
+products => IMAGE DOWNLOAD
+
+source-sink  
+app/controllers/products_controller.rb
+```
+
+### 3.7 OS command Injection
+ ```
+products => IMAGE DOWNLOAD
+
+source-sink  
+app/controllers/products_controller.rb
 ```
 ---
 

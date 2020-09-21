@@ -62,7 +62,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  # DOWNLOAD /products/download
+  # DOWNLOAD /products/download/1?filename=
   def download
     # [vulnerability]: Directory traversal
     # [Safe pattern]:
