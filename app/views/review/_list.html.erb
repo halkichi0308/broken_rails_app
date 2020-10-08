@@ -9,7 +9,9 @@
         <%= if_content_tag :span, review.user_name, class: "bold" %>
       </span>
       <span class="right-align">
-        <%= current_user.email == review.user_name ? link_to("x", "#{list_product_reviews_path(review.product_id)}?delete=#{review.id}",onclick: "return chk_confirm('delete')") : "" %>
+        <% if user_signed_in? %>
+          <%= current_user.email == review.user_name ? link_to("x", "#{list_product_reviews_path(review.product_id)}?delete=#{review.id}",onclick: "return chk_confirm('delete')") : "" %>
+        <% end %>
       </span>
     </p>
     <%# display reviewer message %>
