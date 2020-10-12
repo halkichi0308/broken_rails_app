@@ -22,3 +22,5 @@ public/assets
 .idea
 .secret
 *.rb
+.pryrc
+.byebug_history

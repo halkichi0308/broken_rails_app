@@ -21,17 +21,17 @@
 let chk_confirm = (button_type)=>{
   switch(button_type){
     case "delete":
-      if(!confirm("取り消しますか?")){
+      if(!confirm("Are you sure to delete?")){
         return false
       }
     break
     case "confirm":
-      if(!confirm("送信してよろしいですか?")){
+      if(!confirm("Are you sure to confirm?")){
         return false
       }
     break
     default:
-      if(!confirm("送信してよろしいですか?")){
+      if(!confirm("Are you sure to confirm?")){
         return false
       }
     break

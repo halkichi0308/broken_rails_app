@@ -1,4 +1,4 @@
-current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/nio4r-2.3.1/ext/nio4r
+current directory: /Users/mercy/working/docker/rails/rails_broken_app/vendor/bundler/ruby/2.3.0/gems/nio4r-2.3.1/ext/nio4r
 /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20190104-2612-nbpph.rb extconf.rb
 checking for unistd.h... yes
 checking for sys/select.h... yes
@@ -12,12 +12,12 @@ creating Makefile
 
 To see why this extension failed to compile, please check the mkmf.log which can be found here:
 
-  /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/extensions/universal-darwin-18/2.3.0/nio4r-2.3.1/mkmf.log
+  /Users/mercy/working/docker/rails/rails_broken_app/vendor/bundler/ruby/2.3.0/extensions/universal-darwin-18/2.3.0/nio4r-2.3.1/mkmf.log
 
-current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/nio4r-2.3.1/ext/nio4r
+current directory: /Users/mercy/working/docker/rails/rails_broken_app/vendor/bundler/ruby/2.3.0/gems/nio4r-2.3.1/ext/nio4r
 make "DESTDIR=" clean
 
-current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/nio4r-2.3.1/ext/nio4r
+current directory: /Users/mercy/working/docker/rails/rails_broken_app/vendor/bundler/ruby/2.3.0/gems/nio4r-2.3.1/ext/nio4r
 make "DESTDIR="
 compiling bytebuffer.c
 compiling monitor.c
@@ -249,6 +249,6 @@ ev_set_allocator (void *(*cb)(void *ptr, long size) EV_THROW) EV_THROW
 compiling selector.c
 linking shared-object nio4r_ext.bundle
 
-current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/nio4r-2.3.1/ext/nio4r
+current directory: /Users/mercy/working/docker/rails/rails_broken_app/vendor/bundler/ruby/2.3.0/gems/nio4r-2.3.1/ext/nio4r
 make "DESTDIR=" install
 /usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20190104-2612-1qqwm2
