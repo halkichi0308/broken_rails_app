@@ -1,15 +1,15 @@
-current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
+current directory: /Users/mercy/working/docker/rails/rails_broken_app/vendor/bundler/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
 /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20190104-2612-13uuid8.rb extconf.rb
 creating Makefile
 
-current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
+current directory: /Users/mercy/working/docker/rails/rails_broken_app/vendor/bundler/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
 make "DESTDIR=" clean
 
-current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
+current directory: /Users/mercy/working/docker/rails/rails_broken_app/vendor/bundler/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
 make "DESTDIR="
 compiling cruby.c
 linking shared-object bindex/cruby.bundle
 
-current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
+current directory: /Users/mercy/working/docker/rails/rails_broken_app/vendor/bundler/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
 make "DESTDIR=" install
 /usr/bin/install -c -m 0755 cruby.bundle ./.gem.20190104-2612-x01zl2/bindex

@@ -30,11 +30,9 @@ class ReviewsController < ApplicationController
   end
   def list
     unless params[:delete].blank?
-      review = Review.find params[:delete]
-      if current_user.email == review.user_name
-        review.destroy
-        redirect_to product_path(params[:product_id]), notice: 'The review has been deleted.' and return
-      end
+      review = Review.find(params[:delete])
+      review.destroy
+      redirect_to product_path(params[:product_id]), notice: 'The review has been deleted.' and return
     end
     redirect_to product_path(params[:product_id]) and return
   end

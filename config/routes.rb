@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: 'top#index'
   get '/top', to: 'top#index'
 
-
   # resources でやったほうが rails の作法に則っています
   # その関係で、 /upload/index ではなく、 /upload にパスが変わってしまってます
   # 

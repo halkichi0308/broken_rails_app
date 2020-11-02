@@ -1,15 +1,15 @@
-current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/bootsnap-1.3.2/ext/bootsnap
+current directory: /Users/mercy/working/docker/rails/rails_broken_app/vendor/bundler/ruby/2.3.0/gems/bootsnap-1.3.2/ext/bootsnap
 /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20190104-2612-ifdxwx.rb extconf.rb
 creating Makefile
 
-current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/bootsnap-1.3.2/ext/bootsnap
+current directory: /Users/mercy/working/docker/rails/rails_broken_app/vendor/bundler/ruby/2.3.0/gems/bootsnap-1.3.2/ext/bootsnap
 make "DESTDIR=" clean
 
-current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/bootsnap-1.3.2/ext/bootsnap
+current directory: /Users/mercy/working/docker/rails/rails_broken_app/vendor/bundler/ruby/2.3.0/gems/bootsnap-1.3.2/ext/bootsnap
 make "DESTDIR="
 compiling bootsnap.c
 linking shared-object bootsnap/bootsnap.bundle
 
-current directory: /Users/mercy/working/docker/rails/rails_build_docker/vendor/bundler/ruby/2.3.0/gems/bootsnap-1.3.2/ext/bootsnap
+current directory: /Users/mercy/working/docker/rails/rails_broken_app/vendor/bundler/ruby/2.3.0/gems/bootsnap-1.3.2/ext/bootsnap
 make "DESTDIR=" install
 /usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20190104-2612-3hzk3m/bootsnap

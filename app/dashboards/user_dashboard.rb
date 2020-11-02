@@ -17,6 +17,8 @@ class UserDashboard < Administrate::BaseDashboard
     remember_created_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    password: Field::String,
+    password_confirmation: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
