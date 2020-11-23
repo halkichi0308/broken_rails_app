@@ -2,14 +2,18 @@
 
 class User::PasswordsController < Devise::PasswordsController
   # GET /resource/password/new
-  # def new
-  #   super
-  # end
+  #def new
+  #  super
+  #end
 
   # POST /resource/password
-  # def create
-  #   super
-  # end
+  def create
+    email = params[:email][:to]
+    if User.exists?(email: email)
+      NotificationMailer.send_confirm_to_user(params[:email]).deliver
+    end      
+      flash[:notice] = 'Email was sending. Please your Mail folder.'
+  end
 
   # GET /resource/password/edit?reset_password_token=abcdef
   # def edit

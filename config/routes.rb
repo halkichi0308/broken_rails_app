@@ -80,6 +80,7 @@ Rails.application.routes.draw do
   get 'api/v1/login', to: 'user/sessions#getlogin'
   devise_for :users, controllers: {
     sessions:      'user/sessions',
+    passwords:      'user/passwords',
   }
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'

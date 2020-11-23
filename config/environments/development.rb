@@ -59,4 +59,15 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.another_logger = Logger.new(Rails.root.join('/var/log/access.log'))
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address: "smtp.xxxx.jp",
+  port: 587,
+  domain: 'YourMailDodamin<xxx@example.com>',
+  user_name: 'YourMailUser<xxx@example.com>',
+  authentication: 'login',
+  password: 'password',
+  openssl_verify_mode: 'none'
+}
 end
