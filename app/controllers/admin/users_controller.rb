@@ -39,7 +39,6 @@ module Admin
       user.role = params[:user][:role]
       user.password = params[:user][:password]
       user.password_confirmation = params[:user][:password_confirmation]
-      user.id=User.maximum(:id)+1
       user.save
       redirect_to admin_user_path(id: User.maximum(:id)), notice: 'User was successfully created.'
     end
