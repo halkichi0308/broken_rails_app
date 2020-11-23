@@ -66,4 +66,6 @@ gem 'nokogiri', '~> 1.8'
 gem 'kaminari', '1.1.1'
 gem 'materialize-sass'
 gem 'mini_racer'
-gem 'pry-byebug', '3.5'
+gem 'pry-byebug'
+
+gem 'mail', '2.5.4'

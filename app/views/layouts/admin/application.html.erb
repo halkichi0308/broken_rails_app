@@ -11,8 +11,6 @@ By default, it renders:
 - Flashes
 - Links to stylesheets and JavaScripts
 %>
-<%# If there is css in apply dirctories, it is used. %>
-<%= stylesheet_link_tag params[:controller] if Rails.application.assets_manifest.assets["#{params[:controller]}.css"] %>
 
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
@@ -21,14 +19,15 @@ By default, it renders:
   <meta name="ROBOTS" content="NOODP">
   <meta name="viewport" content="initial-scale=1">
   <title>
-    <%= content_for(:title) %> - <%= Rails.application.class.parent_name.titlecase %>
+    <%= content_for(:title) %> - <%= application_title %>
   </title>
   <%= render "stylesheet" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <%= render "icons" %>
-  <%= render "shared/header" %>
+  <%= link_to image_tag("logo.png"), "/",  { :class => "brand-logo" } %>
+
   <div class="app-container">
     <%= render "navigation" -%>
 

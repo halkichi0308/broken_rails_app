@@ -10,5 +10,5 @@ by providing a `content_for(:stylesheet)` block.
 <% Administrate::Engine.stylesheets.each do |css_path| %>
   <%= stylesheet_link_tag css_path %>
 <% end %>
-<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <%= yield :stylesheet %>

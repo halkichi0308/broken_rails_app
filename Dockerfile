@@ -20,7 +20,7 @@ RUN \
   chmod uog+r /etc/gemrc && \
   bundle config --global build.nokogiri --use-system-libraries && \
   bundle config --global jobs 4 && \
-  bundle install && \
+  bundle install --full-index && \
   rm -rf ~/.gem
 
 #RUN echo '0' > tmp/pids/server.pid
