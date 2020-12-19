@@ -9,9 +9,9 @@ vendor/bundle
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp/cache
-/tmp/pids
+log/*.log
+tmp/cache
+tmp/
 
 # Ignore other unneeded files.
 doc/
