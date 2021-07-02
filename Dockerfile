@@ -5,6 +5,7 @@ ENV TERM "xterm-256color"
 
 WORKDIR $APP_ROOT
 
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - 
 RUN apt-get update && \
     apt-get install -y nodejs \
                        mariadb-client \
