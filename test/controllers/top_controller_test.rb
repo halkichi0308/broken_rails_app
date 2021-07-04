@@ -4,7 +4,7 @@ class TopControllerTest < ActionDispatch::IntegrationTest
   test 'should get index' do
     get root_url
     assert_response :success
-    assert_select 'title', 'RailsBuildDocker'
+    assert_select 'title', 'BrokenRailsApp'
   end
 
 end
