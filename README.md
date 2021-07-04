@@ -3,17 +3,17 @@
 You want start rails using docker, following  command is enough.
 
 ```
-$cd rails_broken_app
+$cd broken_rails_app
 
 $docker-compose up -d
 ```
 
 than use a browser to access ``localhost:3000``
 
-You'll see rails_broken_app page.
+You'll see broken_rails_app page.
 
 ## 2. Usage
-Rails_Broken_App has some vulnerabiliy.Use various techniques to find the vulnerability.
+broken_rails_App has some vulnerabiliy.Use various techniques to find the vulnerability.
 
 ## 3. Vulnerability
 
