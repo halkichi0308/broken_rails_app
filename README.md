@@ -1,5 +1,5 @@
 # README
-## 1. Setup
+## 1. 🚀 Setup
 You want start rails using docker, following  command is enough.
 
 ```
@@ -16,11 +16,11 @@ than use a browser to access ``localhost:3000``
 You'll see broken_rails_app page.
 
 
-
-## 2. Usage
+## 2. 🎓 Usage
 broken_rails_app has some vulnerabiliy. Use various techniques to find out the vulnerability.
 
-## 3. Vulnerability
+
+## 3. 🔍 Vulnerability
 
 
 ### 3.1 XSS   
@@ -31,7 +31,7 @@ Reveiw => SUBMIT
 source-sink
 app/views/review/_list.html.erb
 ```
----
+
 ### 3.2 OpenRedirect  
 ```
 Login => Login
@@ -47,8 +47,8 @@ products => Purchase
 source-sink  
 app/controllers/cart_controller.rb
 ```
----
-### 3.4 XXE injection  
+
+### 3.4 XXE
 ```
 New Products(admin) => Create Product
 
@@ -79,10 +79,10 @@ products => IMAGE DOWNLOAD
 source-sink  
 app/controllers/products_controller.rb
 ```
----
+___
 
 
-## 4. Test
+## 4. ⌛ Test
 
 ### 4.1 Setup
 
