@@ -17,11 +17,7 @@ module Admin
           # その時のメッセージは You are already signed in. となり、
           # なぜtopに飛ばされたのかわからなくなるため、
           # 最初からtopに飛ばして 権限がありません のほうが良いかと思います
-<<<<<<< HEAD
           redirect_to new_user_session_path, alert: 'This content requires admin privileges.'
-=======
-          redirect_to new_user_session_path, alert: '権限がありません'
->>>>>>> 76c020b... テストモジュールの修正とそれに伴う修正
         end
       else
         redirect_to new_user_session_path(redirect: request.url), alert: 'Login'

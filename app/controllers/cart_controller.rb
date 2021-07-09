@@ -9,8 +9,6 @@ class CartController < ApplicationController
   end
 
   def cart
-    # ここで数値チェックを外せばSQLインジェクション
-    #if params[:id] =~ /^[0-9]{0,}$/
     if params[:id]
       session[:cartItem] += [params[:id]]
       redirect_to cart_path, notice: 'You have added products to your cart.' and return

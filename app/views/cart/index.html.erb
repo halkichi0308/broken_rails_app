@@ -31,11 +31,7 @@
         <td><%= @products.count != 0 ? "Total: ¥#{item_total_value}" : 'There is no items in your cart.' %></td>
         <td>
             <% if @products.count == 0%>
-<<<<<<< HEAD
               <%= link_to 'Return to TOP', top_path, { :class => "waves-effect waves-light btn-large" }  %>
-=======
-              <%= link_to 'TOPへ戻る', top_path, { :class => "waves-effect waves-light btn-large" }  %>
->>>>>>> 76c020b... テストモジュールの修正とそれに伴う修正
             <% else %>
               <%= link_to 'Purchase', cart_confirm_path, { :class => "waves-effect waves-light btn-large" }  %>
             <% end %>
