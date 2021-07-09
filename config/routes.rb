@@ -71,7 +71,6 @@ Rails.application.routes.draw do
     end
   match 'admin/login', to: 'admin#login', via: [:get, :post]
   
-
   get '/cart', to: 'cart#index'
   get '/cart/confirm', to: 'cart#submit'
   get '/cart/:id', to: 'cart#cart'
