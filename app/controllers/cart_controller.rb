@@ -61,8 +61,13 @@ class CartController < ApplicationController
     end
   end
 
+  
   def in_cart_products
     products = []
+    
+    # [Note]: N+1 Problem.
+    # [Safe pattern]:
+    #products = Product.all.find(session[:cartItem])
     session[:cartItem].each_with_index do |product_id, i|
       product = Product.find product_id
       products.push product
