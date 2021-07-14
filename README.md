@@ -1,6 +1,6 @@
 # README
 ## 1. 🚀 Setup
-You want start rails using docker, following  command is enough.
+You want to start rails by using docker, following command is enough.
 
 ```
 $cd broken_rails_app
@@ -79,11 +79,8 @@ products => IMAGE DOWNLOAD
 source-sink  
 app/controllers/products_controller.rb
 ```
-<<<<<<< HEAD
 ___
 
-=======
->>>>>>> origin/master
 
 ## 4. ⌛ Test
 
@@ -91,7 +88,7 @@ ___
 
 ```
 $ docker-compose -f docker-compose-test.yml up -d
-$ docker exec -it rails-test
+$ docker exec -it rails-test /bin/bash
 ```
 
 ### 4.2 Migration
@@ -113,6 +110,3 @@ $ bundle exec rails test
 ```
 $ bundle exec rails test:system
 ```
-
-
-
