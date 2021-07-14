@@ -8,7 +8,7 @@ $cd broken_rails_app
 $docker-compose up -d
 ```
 
-> Note: Did mysql image pulling failed? If you use M1 mac. Shoud run below command before docker-compose.
+> Note: Did mysql image pull fail? If you use M1 mac. Shoud run below command before docker-compose.
 `docker pull --platform linux/amd64  mysql:5.7`.
 
 than use a browser to access ``localhost:3000``
