@@ -1,4 +1,4 @@
-FROM ruby:2.6.5-stretch
+FROM ruby:2.7.7-buster
 
 ARG APP_ROOT
 ENV TERM "xterm-256color"
