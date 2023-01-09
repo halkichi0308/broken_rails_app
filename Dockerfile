@@ -9,7 +9,6 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get update && \
     apt-get install -y nodejs \
     sqlite3 \
-    mariadb-client \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
@@ -24,8 +23,6 @@ RUN \
     bundle install --full-index && \
     rm -rf ~/.gem
 
-
-#RUN echo '0' > tmp/pids/server.pid
 
 COPY . $APP_ROOT
 RUN chmod 755 ${APP_ROOT}/init/init.sh

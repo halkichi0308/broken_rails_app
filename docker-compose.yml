@@ -14,6 +14,8 @@ services:
             -   '.:${APP_ROOT}'
         ports:
             -   '3000:3000'
+    # mysql setting.
+    # if mysql need your case, turn off the following comment out and edit config/database.yml.
         # links:
         #     -   'mysql-server'
     #DB
