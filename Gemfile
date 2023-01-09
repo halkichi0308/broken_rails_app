@@ -36,9 +36,11 @@ group :test do
 end
 
 gem 'administrate'
-gem 'nokogiri', '~> 1.8'
+gem 'nokogiri', '~> 1.11.7'
 gem 'kaminari', '1.1.1'
 gem 'materialize-sass'
 gem 'pry-byebug'
 gem 'execjs', '~> 2.8', '>= 2.8.1'
 gem 'mail'
+gem 'sqlite3', '1.4.2', platforms: [:mingw, :mswin, :x64_mingw, :ruby]
+gem 'mini_portile2', '~> 2.5.0'

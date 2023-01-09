@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_01_01_000004) do
 
-  create_table "histories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "histories", force: :cascade do |t|
     t.integer "user_id"
     t.string "user_name"
     t.text "details"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2018_01_01_000004) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.text "info"
     t.integer "value", limit: 2, default: 0, null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2018_01_01_000004) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
     t.integer "product_id", default: 0, null: false
     t.string "user_name", default: "unsubscribed", null: false
     t.text "content"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2018_01_01_000004) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "role"
