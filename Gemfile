@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '2.7.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '6.1.6'
@@ -41,5 +41,5 @@ gem 'materialize-sass'
 gem 'pry-byebug'
 gem 'execjs', '~> 2.8', '>= 2.8.1'
 gem 'mail'
-gem 'sqlite3', '1.4.2', platforms: [:mingw, :mswin, :x64_mingw, :ruby]
+gem 'sqlite3', '~> 1.4.2', platforms: [:mingw, :mswin, :x64_mingw, :ruby]
 gem 'mini_portile2', '~> 2.5.0'
