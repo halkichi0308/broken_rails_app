@@ -15,12 +15,21 @@ services:
         ports:
             -   '3000:3000'
         links:
-            -   'mysql-server'
+            -   'mailcatcher'
+    mailcatcher:
+        image: schickling/mailcatcher
+        ports:
+            - 1080:1080
+    # mysql setting.
+    # if mysql need your case, turn off the following comment out and edit config/database.yml.
+        # links:
+        #     -   'mysql-server'
     #DB
-    mysql-server:
-        container_name: "mysql-server"
-        image:  'mysql:5.7'
-        volumes:
-            -   './sql:/docker-entrypoint-initdb.d'
-        environment:
-            MYSQL_ROOT_PASSWORD: pass
+    # mysql-server:
+    #     platform: 'linux/x86_64'
+    #     container_name: "mysql-server"
+    #     image:  'mysql:5.7'
+    #     volumes:
+    #         -   './sql:/docker-entrypoint-initdb.d'
+    #     environment:
+    #         MYSQL_ROOT_PASSWORD: pass
