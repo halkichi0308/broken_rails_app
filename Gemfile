@@ -1,11 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '2.7.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~>5'
-gem 'mysql2'
+gem 'rails', '6.1.6'
 gem 'devise'
 gem 'puma'
 gem 'sass-rails'
@@ -35,10 +34,12 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-gem 'administrate'
-gem 'nokogiri', '~> 1.8'
+gem 'administrate', '0.18.0'
+gem 'nokogiri', '~> 1.11.7'
 gem 'kaminari', '1.1.1'
 gem 'materialize-sass'
 gem 'pry-byebug'
 gem 'execjs', '~> 2.8', '>= 2.8.1'
 gem 'mail'
+gem 'sqlite3', '~> 1.4.2', platforms: [:mingw, :mswin, :x64_mingw, :ruby]
+gem 'mini_portile2', '~> 2.5.0'

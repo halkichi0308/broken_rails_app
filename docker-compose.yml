@@ -20,6 +20,7 @@ services:
         image: schickling/mailcatcher
         ports:
             - 1080:1080
+
     # mysql setting.
     # if mysql need your case, turn off the following comment out and edit config/database.yml.
         # links:
