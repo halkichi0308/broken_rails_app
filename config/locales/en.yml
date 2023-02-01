@@ -30,4 +30,14 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+    review:
+        success:
+            submit: "Review has been submitted."
+            delete: "The review deleted."
+        error:
+            blank: "Please fill in the review."
+    products:
+        success:
+            create: "Product was successfully created."
+            update: "Product was successfully updated."
+            destroy: "Product was successfully destroyed."
