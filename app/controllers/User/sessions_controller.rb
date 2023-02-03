@@ -13,6 +13,7 @@ class User::SessionsController < Devise::SessionsController
     # [vulnerability]: SQLi
     # [Safe pattern]:
     # self.resource = warden.authenticate!(auth_options)
+    # Refer to https://github.com/heartcombo/devise/blob/8593801130f2df94a50863b5db535c272b00efe1/app/controllers/devise/sessions_controller.rb#L17
 
     # self.resourceにはDBから取得したユーザインスタンスが格納される
     begin
