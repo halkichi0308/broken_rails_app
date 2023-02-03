@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     end
     
     if params[:content].blank?
-      flash[:notice] = 'Please fill in the review.'
+      flash[:notice] = I18n.t('review.error.blank')
     else
       review = Review.new(
                   product_id: params[:product_id],
@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
                   content: params[:content]
                 )
       review.save
-      flash[:notice] = 'Review has been submitted.'
+      flash[:notice] = I18n.t('review.success.submit')
     end
 
     redirect_to product_path(params[:product_id])
@@ -32,7 +32,7 @@ class ReviewsController < ApplicationController
     unless params[:delete].blank?
       review = Review.find(params[:delete])
       review.destroy
-      redirect_to product_path(params[:product_id]), notice: 'The review has been deleted.' and return
+      redirect_to product_path(params[:product_id]), notice: I18n.t('review.success.delete') and return
     end
     redirect_to product_path(params[:product_id]) and return
   end
