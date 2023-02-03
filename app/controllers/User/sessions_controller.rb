@@ -10,7 +10,27 @@ class User::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    self.resource = warden.authenticate!(auth_options)
+    # [vulnerability]: SQLi
+    # [Safe pattern]:
+    # self.resource = warden.authenticate!(auth_options)
+
+    # self.resourceにはDBから取得したユーザインスタンスが格納される
+    begin
+      self.resource = User.find_by("email='#{params[:user][:email]}'")
+    rescue => e
+      errMsg = e.to_s
+    end
+
+    if resource.nil?
+      flash[:notice] = errMsg||I18n.t('session.error.not_found_in_database')
+      redirect_back fallback_location: new_user_session_path and return
+    end
+
+    unless is_passwd_match(resource.encrypted_password, params[:user][:password])
+      set_flash_message!(:notice, :not_found_in_database)
+      redirect_back fallback_location: new_user_session_path and return
+    end
+    
     set_flash_message!(:notice, :signed_in)
     sign_in(resource_name, resource)
     yield resource if block_given?
@@ -20,17 +40,6 @@ class User::SessionsController < Devise::SessionsController
     end
 
     respond_with resource, location: after_sign_in_path_for(resource)
-  end
-
-  # POST /api/v1/login
-  def login
-    personal = {'name' => 'Yamada', 'old' => 28}
-    render :json => personal
-  end
-    # POST /api/v1/login
-  def getlogin
-    personal = {'name' => 'Yamada', 'old' => 28}
-    render :json => personal
   end
 
   # DELETE /resource/sign_out
@@ -44,4 +53,7 @@ class User::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  def is_passwd_match(passwd_hash, raw_passwd)
+    return BCrypt::Password.new(passwd_hash) == raw_passwd
+  end
 end
