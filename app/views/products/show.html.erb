@@ -40,6 +40,13 @@
         let currentURL = decodeURI(location.href)
         let shareURL = document.querySelector("#shareURL")
         shareURL.innerHTML = currentURL
+
+        function currentURLCopy(){
+          navigator.clipboard.writeText(shareURL.innerText);
+          let copyIcon = document.querySelector(".copy");
+          copyIcon.className = "copy";
+          copyIcon.innerText = "[copied!]";
+        }
       </script>
         
       </div>
