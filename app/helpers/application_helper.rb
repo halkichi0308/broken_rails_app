@@ -20,10 +20,16 @@ module ApplicationHelper
 
   def row_render(&html_block)
     if block_given?
+      case params[:controller]
+        when "products"
+          page_padding = "s1"
+        else
+          page_padding = "s2"
+        end
       content_tag(:div, class: "row") do
-        concat content_tag :div, "", class: ["col", "s2"]
+        concat content_tag :div, "", class: ["col", page_padding]
           html_block.call
-        concat content_tag :div, "", class: ["col", "s2"]
+        concat content_tag :div, "", class: ["col", page_padding]
       end
     end
   end

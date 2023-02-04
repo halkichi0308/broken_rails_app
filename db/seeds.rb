@@ -10,7 +10,7 @@ unless Product.exists?
   5.times do|i|
     product = Product.new(
         title: "test_item#{i}",
-        info: "test_info#{i}",
+        info: "test_item#{i} information: I am a very simple Item. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.",
         value: 1000,
         img_path: "dummy#{i}.jpg"
     )
