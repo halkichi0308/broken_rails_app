@@ -2,11 +2,11 @@
   <%# 
     products show:
       |left|right|
-      |  s4|   s4|
+      |  s5|   s5|
   %>
 
   <%### left side contents ###%>
-  <div class="col s4">
+  <div class="col s5">
     <div class="card">
       <div class="card-image">
 
@@ -27,11 +27,27 @@
         <%= render "review/new", product_id: @product.id %>
 
       </div>
+      <div class="divider"><%# content lile %></div>
+      <div class="card-content" >
+      <p>Share product URL:</p>
+      <div>
+      <pre class="share">
+        <code id="shareURL"></code>
+        <i class="tiny material-icons right copy" onclick="currentURLCopy()">content_copy</i>
+      </pre>
+      </div>
+      <script>
+        let currentURL = decodeURI(location.href)
+        let shareURL = document.querySelector("#shareURL")
+        shareURL.innerHTML = currentURL
+      </script>
+        
+      </div>
     </div>
   </div>
 
   <%### right side contents ###%>
-  <div class="col s4">
+  <div class="col s5">
       <div class="card">
         <div class="card-content">
 
@@ -43,9 +59,7 @@
 
           <%# products info %>
           <p>
-          <%= @product.info %>:
-          I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
+          <%= @product.info %>:</p>
 
         </div>
 
@@ -68,31 +82,31 @@
 
         <div class="divider"><%# content lile %></div>
 
-         <%# Review list contents %>
-          <ul class="collapsible z-depth-0" style="border:none;">
-            <li>
-              <div class="collapsible-header">
+        <%# Review list contents %>
+        <ul class="collapsible z-depth-0" style="border:none;">
+          <li>
+            <div class="collapsible-header">
 
-                <%= link_to("javascript:void(0)") do %>
-                  <%= @product.reviews.size > 0 ? "Reviews (#{@product.reviews.size})" : content_tag(:span, "There are no reviews.", class: "normal") %>
-                <% end %>
+              <%= link_to("javascript:void(0)") do %>
+                <%= @product.reviews.size > 0 ? "Reviews (#{@product.reviews.size})" : content_tag(:span, "There are no reviews.", class: "normal") %>
+              <% end %>
 
 
-              </div>
-              <div class="collapsible-body">
-                <%= render "review/list", reviews: @reviews %>
-              </div>
-              <div  class="collapsible-body">
-              </div>
-            </li>
-          </ul>
+            </div>
+            <div class="collapsible-body">
+              <%= render "review/list", reviews: @reviews %>
+            </div>
+            <div  class="collapsible-body">
+            </div>
+          </li>
+        </ul>
 
-          <div class="card-content right-align">
-            <%= form_tag("/products/download/#{@product.id}", method: "get") do %>
-              <%= hidden_field_tag :filename, @product.img_path %>
-              <%= button_tag "Image Download", class: 'btn btn-info' %>
-            <% end %>
-          </div>
+        <div class="card-content right-align">
+          <%= form_tag("/products/download/#{@product.id}", method: "get") do %>
+            <%= hidden_field_tag :filename, @product.img_path %>
+            <%= button_tag "Image Download", class: 'btn waves-effect waves-light' %>
+          <% end %>
+        </div>
       </div>
   </div>
 

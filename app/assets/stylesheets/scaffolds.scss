@@ -82,3 +82,27 @@ div {
 label {
   display: block;
 }
+pre.share {
+  display: block;
+  background-color:transparent;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background-color: #eee;
+  height: 60px;
+  padding: 0px;
+  border-radius: 5px;
+
+  code {
+    display: block;
+    padding-left: 10px;
+  }
+}
+
+i.copy{
+  position: absolute;
+  right: 1.7rem;
+  top: 70%;
+  color:#000 !important;
+  // width: 1.75rem;
+}
