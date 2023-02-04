@@ -10,10 +10,3 @@ window.addEventListener("turbolinks:load", () => {
         collapsible_body[0].style.display = "block";
     }
 });
-
-function currentURLCopy() {
-    navigator.clipboard.writeText(shareURL.innerText);
-    let copyIcon = document.querySelector(".copy");
-    copyIcon.className = "copy";
-    copyIcon.innerText = "[copied!]";
-}
