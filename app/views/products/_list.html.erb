@@ -39,9 +39,7 @@
 
         <div class="card-content">
             
-          <p><%= product.info %>:
-          I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
+          <p><%= product.info %></p>
 
           <%# Display "Reviews(n)" %>
           <%= content_tag :p, "Reviews (#{product.reviews.count})", class: "right-align blue-text" %>
