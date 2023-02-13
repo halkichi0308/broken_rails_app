@@ -44,3 +44,6 @@ en:
     session:
         error:
             not_found_in_database: "Invalid email or password."
+    user:
+        error:
+            email_invalid: "Invalid Email."
