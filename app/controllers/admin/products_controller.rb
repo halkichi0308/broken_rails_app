@@ -26,11 +26,13 @@ class Admin::ProductsController < Admin::ApplicationController
 
   # POST /admin/products/upload
   # Only Admin User
+  # [vulnerability]: XXE
+  # Refer to https://nokogiri.org/tutorials/parsing_an_html_xml_document.html#parse-options
   def upload
     xml = params[:fileupload][:file]
     doc = Nokogiri::XML(xml) do |config|
-      config.noent
-    end    
+      config.nononet.noent
+    end
 
     products = []
 
