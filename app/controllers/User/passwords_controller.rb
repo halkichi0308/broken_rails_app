@@ -14,6 +14,7 @@ class User::PasswordsController < Devise::PasswordsController
       flash[:notice] = I18n.t('user.error.email_invalid')
       redirect_back fallback_location: new_user_password_path and return
     end
+    #binding.pry
     super
     # email = params[:email][:to]
     # if User.exists?(email: email)
