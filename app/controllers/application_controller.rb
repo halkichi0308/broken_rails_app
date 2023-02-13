@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :access_logger
+  before_action :access_logger, :set_host
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 
@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
   # The logs you got are writeen to  "/var/log/access.log"
   def access_logger
     Rails.application.config.another_logger.info("#{request.method} '#{request.path}' #{request.version} from: #{request.remote_ip}")
+  end
+
+  def set_host
+    Rails.application.config.action_mailer.default_url_options= {host: request.host, port: request.port}
   end
 
   protected
