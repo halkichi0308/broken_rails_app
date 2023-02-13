@@ -8,6 +8,12 @@ class User::PasswordsController < Devise::PasswordsController
 
   # POST /resource/password
   def create
+    email = params[:user][:email]
+
+    unless is_email_vaild(email)
+      flash[:notice] = I18n.t('user.error.email_invalid')
+      redirect_back fallback_location: new_user_password_path and return
+    end
     super
     # email = params[:email][:to]
     # if User.exists?(email: email)
@@ -37,4 +43,8 @@ class User::PasswordsController < Devise::PasswordsController
   # def after_sending_reset_password_instructions_path_for(resource_name)
   #   super(resource_name)
   # end
+  def is_email_vaild(email)
+    # [vulnerability]: Redos
+    return email.match?(/^([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+$/)
+  end
 end
