@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card"  data-no-turbolink>
       <div class="card-content">
 
         <%# reviewers form %>
@@ -37,9 +37,12 @@
       </pre>
       </div>
       <script>
-        let currentURL = decodeURI(location.href)
-        let shareURL = document.querySelector("#shareURL")
-        shareURL.innerHTML = currentURL
+        (()=>{
+          let currentURL = decodeURI(location.href)
+          let shareURL = document.querySelector("#shareURL")
+          shareURL.innerHTML = currentURL
+        })()
+
 
         function currentURLCopy(){
           navigator.clipboard.writeText(shareURL.innerText);
@@ -83,7 +86,7 @@
         <div class="divider"><%# content lile %></div>
 
         <div class="card-content right-align">
-          <%= link_to "Purchase", "/cart/#{@product.id}", {class: "btn waves-effect waves-light" }%>
+          <%= link_to "Add to cart", "/cart/#{@product.id}", {class: "btn waves-effect waves-light" }%>
         </div>
 
 
