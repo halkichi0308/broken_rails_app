@@ -4,11 +4,11 @@
     <div class="card-content">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", value: session[:rtn_email] %>
         <br>
         <%= f.label :password %><br />
         <%= f.password_field :password, autocomplete: "current-password" %>
-        <%= f.hidden_field :redirect, :value => params[:redirect] %>
+        <input type="hidden" name="user[redirect]" value="<%= raw params[:redirect] %>">
         <br>
         <div class="center-align">
           <%= f.submit "Login", class: "waves-light btn" %>
