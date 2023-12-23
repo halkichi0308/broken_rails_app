@@ -151,3 +151,6 @@ $ bundle exec rails test
 ```
 $ bundle exec rails test:system
 ```
+
+AWS=ETkSpGJWCPQmUIU0AHlGL+9iJSPWeEQd2XAqMTvd
+SECRET=ETkSpGJWCPQmUIU0AHlGL+9iJSPWeEQd2XAqMTvd
