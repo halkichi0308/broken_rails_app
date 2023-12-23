@@ -61,7 +61,7 @@ class CartController < ApplicationController
     end
   end
 
-  
+
   def in_cart_products
     products = []
     

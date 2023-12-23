@@ -20,7 +20,7 @@ RUN \
     chmod uog+r /etc/gemrc && \
     bundle config --global build.nokogiri --use-system-libraries && \
     bundle config --global jobs 4 && \
-    bundle install --full-index && \
+    bundle install -j4 --full-index && \
     rm -rf ~/.gem
 
 
