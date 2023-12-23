@@ -2,24 +2,29 @@
 
 ## 1. 🚀 Setup
 
-You want to start rails by using docker, following command is enough.
-
+Use docker to launch this application.
 ```
 $cd broken_rails_app
 
 $docker-compose up -d
 ```
 
-> Note: Did mysql image pull fail? If you use M1 mac. Shoud run below command before docker-compose.
+> Note: Did mysql image pull fail? If you use M1/M2 mac. Shoud run below command before docker-compose.
 > `docker pull --platform linux/amd64  mysql:5.7`.
 
 than use a browser to access `localhost:3000`
 
 You'll see broken_rails_app page.
 
+**Why using Docker?**: 
+We do not recommend running on a host OS because there is no safe way to handle command injection.
+
 ## 2. 🎓 Usage
 
-broken_rails_app has some vulnerabiliy. Use various techniques to find out the vulnerability.
+broken_rails_app has some vulnerabiliy. Use various techniques to find out the vulnerability. Use it to validate other SAST and DAST tools.
+
+Can't find the vulnerability?
+Take a look at our [tips](https://github.com/halkichi0308/broken_rails_app/blob/master/payloads.md).
 
 ## 3. 🔍 Vulnerability
 
