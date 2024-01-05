@@ -15,7 +15,4 @@ jobs:
       - name: docker-compose up -d
         run: docker-compose up -d
       - name: check curl
-        run: >
-          until $(curl -I http://localhost:3000) || [ $NEXT_WAIT_TIME -eq 60 ]; do
-            sleep $(( NEXT_WAIT_TIME++ ))
-          done
+        run: until (curl -I localhost:3000 | grep "200 OK") do sleep 5; done
