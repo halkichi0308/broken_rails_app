@@ -1,0 +1,18 @@
+name: check docker build
+on:
+  pull_request:
+  workflow_dispatch:
+env:
+  NEXT_WAIT_TIME: 5
+jobs:
+  check_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: define run url
+        run: echo "ACTION_URL=https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" >> $GITHUB_ENV
+      - name: docker-compose up -d
+        run: docker-compose up -d
+      - name: check curl
+        run: until (curl -I localhost:3000 | grep "200 OK") do sleep 5; done
