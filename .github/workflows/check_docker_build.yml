@@ -1,0 +1,16 @@
+name: check docker build
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  check_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: define run url
+        run: echo "ACTION_URL=https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" >> $GITHUB_ENV
+      - name: docker-compose build
+        run: docker-compose build
+      - name: check curl
+        run: curl http://localhost:3000
