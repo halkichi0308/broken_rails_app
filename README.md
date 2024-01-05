@@ -1,4 +1,5 @@
 # Broken_Rails_App
+![check](https://github.com/halkichi0308/broken_rails_app/actions/workflows/check_docker_build.yml/badge.svg)
 
 ## 1. 🚀 Setup
 
