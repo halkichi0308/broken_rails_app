@@ -1,0 +1,41 @@
+# @format
+volumes:
+    ignore-tmp:
+version: "3"
+services:
+    rails-server:
+        container_name: "rails-server"
+        build:
+            context: .
+            dockerfile: Dockerfile-root
+            args:
+                APP_ROOT: $APP_ROOT
+        tty: true
+        stdin_open: true
+        env_file:
+            - ".env"
+        volumes:
+            - ".:${APP_ROOT}"
+            - "ignore-tmp:${APP_ROOT}/tmp"
+        ports:
+            - "3000:3000"
+        links:
+            - "mailcatcher"
+    mailcatcher:
+        image: schickling/mailcatcher
+        ports:
+            - 1080:1080
+
+    # mysql setting.
+    # if mysql need your case, turn off the following comment out and edit config/database.yml.
+    # links:
+    #     -   'mysql-server'
+    #DB
+    # mysql-server:
+    #     platform: 'linux/x86_64'
+    #     container_name: "mysql-server"
+    #     image:  'mysql:5.7'
+    #     volumes:
+    #         -   './sql:/docker-entrypoint-initdb.d'
+    #     environment:
+    #         MYSQL_ROOT_PASSWORD: pass
