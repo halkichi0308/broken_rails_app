@@ -1,21 +1,26 @@
-version: '3'
+# @format
+
 services:
     rails-server:
         container_name: "rails-server"
         build:
             context: .
+            dockerfile: Dockerfile
             args:
                 APP_ROOT: $APP_ROOT
         tty: true
         stdin_open: true
         env_file:
-            -   '.env'
+            - ".env"
+        user: 1000:1000
         volumes:
-            -   '.:${APP_ROOT}'
+            - /etc/passwd:/etc/passwd:ro
+            - /etc/group:/etc/group:ro
+        #     - ".:${APP_ROOT}"
         ports:
-            -   '3000:3000'
+            - "3000:3000"
         links:
-            -   'mailcatcher'
+            - "mailcatcher"
     mailcatcher:
         image: schickling/mailcatcher
         ports:
@@ -23,8 +28,8 @@ services:
 
     # mysql setting.
     # if mysql need your case, turn off the following comment out and edit config/database.yml.
-        # links:
-        #     -   'mysql-server'
+    # links:
+    #     -   'mysql-server'
     #DB
     # mysql-server:
     #     platform: 'linux/x86_64'
