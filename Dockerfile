@@ -34,6 +34,7 @@ USER ${LOGIN_USER}
 RUN echo 'gem: --no-document' >> ~/.gemrc && \
     bundle config --global build.nokogiri --use-system-libraries && \
     bundle config --global jobs 4 && \
+    bundle config set without development test && \
     bundle install -j4 --full-index && \
     rm -rf ~/.gem
 

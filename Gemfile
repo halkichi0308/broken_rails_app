@@ -25,6 +25,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry-byebug'
 end
 
 group :test do
@@ -39,7 +40,6 @@ gem 'administrate', '0.18.0'
 gem 'nokogiri', '~> 1.11.7'
 gem 'kaminari', '1.1.1'
 gem 'materialize-sass'
-gem 'pry-byebug'
 gem 'execjs', '~> 2.8', '>= 2.8.1'
 gem 'mail'
 gem 'sqlite3', '~> 1.4.2', platforms: [:mingw, :mswin, :x64_mingw, :ruby]
