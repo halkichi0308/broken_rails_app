@@ -96,15 +96,18 @@
         <ul class="collapsible z-depth-0" style="border:none;">
           <li>
             <div class="collapsible-header">
-
+              <%# review_countを代入せずif文の中で使用すると2回SQLが発行される %>
+              <% review_count = @product.reviews.size %>
               <%= link_to("javascript:void(0)") do %>
-                <%= @product.reviews.size > 0 ? "Reviews (#{@product.reviews.size})" : content_tag(:span, "There are no reviews.", class: "normal") %>
+                <%= review_count > 0 ? "Reviews (#{review_count})" : content_tag(:span, "There are no reviews.", class: "normal") %>
               <% end %>
 
 
             </div>
             <div class="collapsible-body">
-              <%= render "review/list", reviews: @reviews %>
+              <% if review_count > 0 %>
+                <%= render "review/list", reviews: @reviews %>
+              <% end %>
             </div>
             <div  class="collapsible-body">
             </div>
