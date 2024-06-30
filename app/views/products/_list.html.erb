@@ -32,8 +32,7 @@
             <p><%= product.info %></p>
 
             <%# Display "Reviews(n)" %>
-            <% reviews = product.reviews.size %>
-            <%= content_tag :p, "Reviews (#{reviews})", class: "right-align blue-text" %>
+            <%= content_tag :p, "Reviews (#{product.reviews.count})", class: "right-align blue-text" %>
           </div>
 
           
