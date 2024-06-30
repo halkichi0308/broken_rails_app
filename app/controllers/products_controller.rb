@@ -4,14 +4,12 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.preload(:reviews)
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
     @reviews = @product.reviews.page(params[:page]).per(3).order(created_at: 'DESC')
-    # @reviews = Reviews.all()
   end
 
   # GET /products/new

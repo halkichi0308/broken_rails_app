@@ -15,8 +15,7 @@ class TopController < ApplicationController
     end
   end
   def index
-    @reviews = Review.all.order(id: 'DESC')
     @per_count = 3
-    @products = Product.page(params[:page]).per(@per_count).order(:id)
+    @products = Product.preload(:reviews).page(params[:page]).per(@per_count)
   end
 end
