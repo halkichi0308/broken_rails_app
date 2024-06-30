@@ -67,9 +67,9 @@ class CartController < ApplicationController
     
     # [Note]: N+1 Problem.
     # [Safe pattern]:
-    #products = Product.all.find(session[:cartItem])
+    # products = Product.all.find(session[:cartItem])
     session[:cartItem].each_with_index do |product_id, i|
-      product = Product.find product_id
+      product = Product.find_by(id: product_id)
       products.push product
     end
     products
