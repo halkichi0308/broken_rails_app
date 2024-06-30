@@ -3,52 +3,43 @@
   # @param [Array<Product>] products Product
 %>
 
-<%
-  dummy_product = Product.new(
-    :id => 1,
-    :title => "dummy",
-    :img_path => "",
-    :info => "",
-    :value => "0"
-  )
-%>
 <div class="item_list col s10">
-  <%# @products.each do |product| %>
-  <% per_count.times do |i| %>
-    <% product = products[i].nil? ? dummy_product : products[i] %>
-    <% is_dummy = products[i].nil? ? "dummy" : "" %>
+  <% @products.each do |product| %>
+    <% if product.nil? %>
+      <%= content_tag("div", class: ["card", "products", "dummy" ]) do %>
+      <% end %>
+    <% else %>
+      <!--<div class="card products">-->
+      <%= content_tag("div", class: ["card", "products", "" ]) do %>
+        <%= link_to product_path(product.id), :class=>"item" do %>
+          <div class="card-image">
 
-    
-    <!--<div class="card products">-->
-    <%= content_tag("div", class: ["card", "products", is_dummy ]) do %>
-      <%= link_to product_path(product.id), :class=>"item" do %>
-        <div class="card-image">
+            <%# product image %>
+            <% begin %>
+              <%= image_tag product.img_path, :class=>"item_img" %>
+              <%# raise NoMethodError %>
+            <% rescue %>
+              <%= image_tag "no_image.jpg", :class=>"item_img" %>
+            <% end %>
 
-          <%# product image %>
-          <% begin %>
-            <%= image_tag product.img_path, :class=>"item_img" %>
-            <%# raise NoMethodError %>
-          <% rescue %>
-            <%= image_tag "no_image.jpg", :class=>"item_img" %>
-          <% end %>
+            <%# product title %>
+            <span class="card-title"><%= product.title %></span>
 
-          <%# product title %>
-          <span class="card-title"><%= product.title %></span>
+          </div>
 
-        </div>
+          <div class="card-content">
+              
+            <p><%= product.info %></p>
 
-        <div class="card-content">
-            
-          <p><%= product.info %></p>
+            <%# Display "Reviews(n)" %>
+            <%= content_tag :p, "Reviews (#{product.reviews.count})", class: "right-align blue-text" %>
+          </div>
 
-          <%# Display "Reviews(n)" %>
-          <%= content_tag :p, "Reviews (#{product.reviews.count})", class: "right-align blue-text" %>
-        </div>
-
-        
-        <div class="card-action right-align">
-          <%= content_tag :span, "#{currency_type("ja")} #{product.value}" %>
-        </div>
+          
+          <div class="card-action right-align">
+            <%= content_tag :span, "#{currency_type("ja")} #{product.value}" %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
