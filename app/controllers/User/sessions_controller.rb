@@ -22,11 +22,13 @@ class User::SessionsController < Devise::SessionsController
       errMsg = e.to_s
     end
 
+    # ユーザが存在しなかった場合の処理
     if resource.nil?
       flash[:notice] = errMsg||I18n.t('session.error.not_found_in_database')
       redirect_back fallback_location: new_user_session_path and return
     end
 
+    # PW確認処理
     unless is_passwd_match(resource.encrypted_password, params[:user][:password])
       set_flash_message!(:notice, :not_found_in_database)
       redirect_back fallback_location: new_user_session_path and return

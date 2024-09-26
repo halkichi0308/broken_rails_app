@@ -26,6 +26,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -44,3 +45,4 @@ gem 'execjs', '~> 2.8', '>= 2.8.1'
 gem 'mail'
 gem 'sqlite3', '~> 1.4.2', platforms: [:mingw, :mswin, :x64_mingw, :ruby]
 gem 'mini_portile2', '~> 2.5.0'
+gem 'mysql2'
