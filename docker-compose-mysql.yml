@@ -16,7 +16,7 @@ services:
         volumes:
             - /etc/passwd:/etc/passwd:ro
             - /etc/group:/etc/group:ro
-            - ".:${APP_ROOT}"
+            - "./app:${APP_ROOT}/app"
         ports:
             - "3000:3000"
         links:
@@ -35,7 +35,7 @@ services:
     #     -   'mysql-server'
     #DB
     mysql-server:
-        platform: "linux/x86_64"
+        #platform: "linux/x86_64"
         container_name: "mysql-server"
         image: "mysql:5.7"
         volumes:
