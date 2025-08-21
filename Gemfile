@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '6.1.6'
+gem 'rails', '7.1.5.2'
 gem 'devise'
 gem 'puma'
 gem 'sass-rails'
@@ -36,9 +36,9 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-gem 'administrate', '0.18.0'
+gem 'administrate', '0.19.0'
 gem 'nokogiri', '~> 1.11.7'
-gem 'kaminari', '1.1.1'
+gem 'kaminari', '1.2.0'
 gem 'materialize-sass'
 gem 'execjs', '~> 2.8', '>= 2.8.1'
 gem 'mail'
