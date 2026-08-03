@@ -13,6 +13,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 RUN apt-get update && \
     apt-get install -y nodejs \
     sqlite3 \
+    mariadb-client \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
@@ -21,6 +22,8 @@ RUN groupadd -r --gid $GID $LOGIN_USER && \
 
 COPY --chown=$LOGIN_USER:$LOGIN_USER Gemfile $APP_ROOT/
 COPY --chown=$LOGIN_USER:$LOGIN_USER Gemfile.lock $APP_ROOT/
+
+RUN echo "\ngem 'mysql2'" >> $APP_ROOT/Gemfile
 
 # [Note]allow rails to write /var/log/*.log
 RUN chown -R $LOGIN_USER:$LOGIN_USER /var
