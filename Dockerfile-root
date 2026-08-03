@@ -1,4 +1,4 @@
-FROM ruby:2.7.7-buster
+FROM ruby:2.7.7-bullseye
 
 ARG APP_ROOT
 ENV TERM "xterm-256color"
