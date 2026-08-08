@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '6.1.6'
+gem 'rails', '7.0.0'
 gem 'devise'
 gem 'puma'
 gem 'sass-rails'
@@ -38,7 +38,7 @@ group :test do
 end
 
 gem 'administrate', '0.18.0'
-gem 'nokogiri', '~> 1.11.7'
+gem 'nokogiri', '~> 1.18.3'
 gem 'kaminari', '1.1.1'
 gem 'materialize-sass'
 gem 'execjs', '~> 2.8', '>= 2.8.1'
